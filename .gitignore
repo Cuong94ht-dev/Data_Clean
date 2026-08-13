@@ -1,0 +1,25 @@
+# Môi trường ảo Python (Virtual Environments)
+.venv/
+venv/
+env/
+ENV/
+
+# Python Cache & Byte-code
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Streamlit (Giữ lại config, chỉ che bớt secret/keys)
+.streamlit/secrets.toml
+
+# IDE & Editor Configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
