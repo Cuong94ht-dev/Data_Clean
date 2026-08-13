@@ -1,10 +1,5 @@
 import streamlit as st
 
-# 1. Cấu hình danh sách Tài khoản & Mật khẩu cho team
-USERS = {
-    "admin": "123abc",
-}
-
 def check_password():
     """Hàm kiểm tra mật khẩu"""
     if "authenticated" not in st.session_state:
@@ -19,7 +14,9 @@ def check_password():
     password = st.text_input("Mật khẩu", type="password")
     
     if st.button("Đăng nhập", type="primary"):
-        if username in USERS and USERS[username] == password:
+        # Đọc danh sách tài khoản từ st.secrets
+        user_list = st.secrets.get("passwords", {})
+        if username in user_list and user_list[username] == password:
             st.session_state["authenticated"] = True
             st.rerun()
         else:
